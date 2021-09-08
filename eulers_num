@@ -34,7 +34,7 @@ def e_series():
 
 e_series()
 
-# displays how efficient the series is, using iteration vs value graph
+# displays how efficient the series is, by using an iteration vs value graph
 
 plt.plot(e_iter_no,e_val)
 plt.plot(e_iter_no,e_actual_val)
