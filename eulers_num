@@ -1,0 +1,44 @@
+# importing all necessary libraries
+
+import matplotlib.pyplot as plt
+import numpy as np
+
+# intialising variables and numpy arrays
+
+c = int(input("Enter a number"))
+e_val=np.zeros([c,1],dtype=np.float32)
+e_iter_no=np.zeros([c,1],dtype=np.int32)
+e_actual_val=np.zeros([c,1],dtype=np.float32)
+
+
+print("This is a programme which calculates the mathematical constant e")
+
+# this function calculates factorial
+
+def factorial(a):
+    n=1
+    for i in range(1, a + 1):
+        n = n * i
+    return n
+
+# this function calculates an approximation of e using the series
+
+def e_series():
+    e = 1
+    for j in range(1,c+1):
+        e=e+(1/factorial(j))
+        e_val[j-1,0]= e
+        e_iter_no[j-1,0]=j
+        e_actual_val[j-1,0]=np.exp(1)
+    print(e)
+
+e_series()
+
+# displays how efficient the series is, using iteration vs value graph
+
+plt.plot(e_iter_no,e_val)
+plt.plot(e_iter_no,e_actual_val)
+plt.title("Efficiency of the e series")
+plt.xlabel("Number of Iterations")
+plt.ylabel("Value of e")
+plt.show()
